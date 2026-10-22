@@ -1,0 +1,64 @@
+{
+  "project_name": "Roamer N' Destroyer - Roamer Mode",
+  "board": {
+    "chip": "ESP32-D0WD-V3 (revision v3.1)",
+    "mac_address": "b4:bf:e9:0d:91:10",
+    "flash_size_mb": 4,
+    "framework": "Arduino-ESP32 (Core v2.0.17 / ESP-IDF v4.4.7)",
+    "com_port": "COM8"
+  },
+  "wifi_ap": {
+    "ssid": "RND OS [R' Mode]",
+    "password": "M3raky4T",
+    "auth_mode": "OPEN / WPA2",
+    "channel": 6,
+    "activation": "Press BOOT button (GPIO 0) 3 times to toggle Web Mode. Auto-disables when PS3 connects."
+  },
+  "bluetooth_controller": {
+    "protocol": "PS3 Controller (DualShock 3 via L2CAP/HID)",
+    "paired_ps3_mac": "22:3d:75:2a:f0:b2"
+  },
+  "hardware_pins": {
+    "pin_mla": 33,
+    "pin_mlb": 32,
+    "pin_mra": 25,
+    "pin_mrb": 26,
+    "boot_button": 0
+  },
+  "motion_parameters": {
+    "ramp_up_time_ms": 200,
+    "ramp_down_time_ms": 250,
+    "forward_speeds": {
+      "F_FAST_L": 255,
+      "F_FAST_R": 255,
+      "F_MEDIUM_L": 61,
+      "F_MEDIUM_R": 61,
+      "F_LOW_L": 20,
+      "F_LOW_R": 20
+    },
+    "backward_speeds": {
+      "B_FAST_L": 171,
+      "B_FAST_R": 171,
+      "B_MEDIUM_L": 61,
+      "B_MEDIUM_R": 61,
+      "B_LOW_L": 20,
+      "B_LOW_R": 20
+    },
+    "turn_rates": {
+      "TR_LOW_LR": 35,
+      "TR_MEDIUM_LR": 65,
+      "TR_FAST_LR": 100
+    },
+    "curve_movement": {
+      "CRV_LOW_L": 255,
+      "CRV_LOW_R": 32,
+      "CRV_MEDIUM_L": 0,
+      "CRV_MEDIUM_R": 0,
+      "CRV_FAST_L": 255,
+      "CRV_FAST_R": 32
+    },
+    "s_speed": {
+      "DEFAULT_LR": 0
+    }
+  }
+}

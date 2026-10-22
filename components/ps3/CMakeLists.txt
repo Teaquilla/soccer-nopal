@@ -1,0 +1,20 @@
+idf_component_register(
+    SRCS 
+        "src/ps3.c"
+        "src/ps3_l2cap.c"
+        "src/ps3_parser.c"
+        "src/ps3_spp.c"
+    INCLUDE_DIRS 
+        "src/include"
+        "src"
+    PRIV_INCLUDE_DIRS 
+        "src/common"
+        "src/osi"
+        "src/stack"
+    REQUIRES 
+        bt 
+        nvs_flash 
+        esp_timer 
+        esp_hw_support 
+        esp_system
+)

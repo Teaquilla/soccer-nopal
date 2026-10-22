@@ -1,0 +1,90 @@
+<div class='slider-row'>
+<div class='slider-label'>
+<input type='range' id='
+' disabled style='accent-color:#CAD66A;'>
+<input type='number' id='
+_num' min='0' max='255' value='
+' oninput="updateFromNumber('
+')" onblur="updateFromNumber('
+')">
+Rebooting...
+text/plain
+F_LOW_L
+F_LOW_R
+F_MEDIUM_L
+F_MEDIUM_R
+F_FAST_L
+F_FAST_R
+B_LOW_L
+B_LOW_R
+B_MEDIUM_L
+B_MEDIUM_R
+B_FAST_L
+B_FAST_R
+TR_LOW_LR
+TR_MEDIUM_LR
+TR_FAST_LR
+CRV_LOW_L
+CRV_LOW_R
+CRV_MEDIUM_L
+CRV_MEDIUM_R
+CRV_FAST_L
+CRV_FAST_R
+DEFAULT_LR
+22:3d:75:2a:f0:b2
+ps3_mac
+pin_mra
+pin_mrb
+pin_mla
+pin_mlb
+ramp_up
+ramp_down
+Settings saved!
+Reset OK
+selected
+<!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'/><meta charset='UTF-8'/><title>RND Config</title>    
+<style>:root{--bg:#010d08;--card:#04180f;--text:#CAD66A;--soft:#9aa656;--accent:#CAD66A;--line:#45602d;--sec:#143a26;--shadow:0 2px 6px rgba(0,0,0,0.35);--sep:22px;}body{font-family:'Segoe UI',sans-serif;margin:0;padding:0;background:var(--bg);color:var(--text);}.t{width:100%;position:sticky;top:0;z-index:10;background:var(--card);padding:14px 16px;font-size:18px;font-weight:600;color:var(--accent);box-shadow:var(--shadow);text-align:center;}.page{padding:16px;}.card{background:var(--card);border-radius:12px;padding:16px;box-shadow:var(--shadow);margin-bottom:var(--sep);border:1px solid var(--line);}.card-title{font-weight:600;font-size:16px;margin-bottom:12px;color:var(--accent);}.slider-row{display:grid;grid-template-columns:140px 1fr 70px;gap:10px;margin-bottom:12px;}.input-row{display:grid;grid-template-columns:140px 1fr;gap:10px;margin-bottom:12px;align-items:center;}.slider-label{font-size:14px;font-weight:500;color:var(--text);}input[type=range]{width:100%;margin:0;accent-color:var(--accent);}input[type=number], input[type=text], select{width:100%;padding:6px;font-size:14px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text);text-align:center;}.btn{padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:var(--bg);cursor:pointer;transition:0.25s;margin-right:8px;margin-bottom:10px;font-size:14px;font-weight:600;}.btn:hover{filter:brightness(0.9);}.btn.secondary{background:var(--sec);color:var(--text);}.footer{font-size:12px;color:var(--soft);margin-top:8px;text-align:center;}@media(max-width:520px){.slider-row, .input-row{grid-template-columns:1fr;gap:6px;} input[type=number], input[type=text], select{width:100%;} .btn{width:100%;}}</style></head><body>                                                      
+<div class='t'>Roamer N' Destroyer - Roamer Mode</div>     
+<div class='page'>
+<div class='card'><div class='card-title'>System & Hardware Config</div>
+<div class='input-row'><div class='slider-label'>PS3 MAC Address</div>
+<input type='text' id='ps3_mac' value='
+'></div>
+<div class='input-row'><div class='slider-label'>Pin MRA</div>
+<input type='number' id='pin_mra' value='
+<div class='input-row'><div class='slider-label'>Pin MRB</div>
+<input type='number' id='pin_mrb' value='
+<div class='input-row'><div class='slider-label'>Pin MLA</div>
+<input type='number' id='pin_mla' value='
+<div class='input-row'><div class='slider-label'>Pin MLB</div>
+<input type='number' id='pin_mlb' value='
+<div class='input-row'><div class='slider-label'>Ramp Up Time</div>
+<select id='ramp_up'>
+<option value='50' 
+>50 (Cepat)</option>
+<option value='100' 
+>100 (Sedang)</option>
+<option value='150' 
+>150 (Lambat)</option>
+<option value='200' 
+>200 (Sangat Lambat)</option>
+</select></div>
+<div class='input-row'><div class='slider-label'>Ramp Down Time (Mundur)</div>
+<select id='ramp_down'>
+>150 (Halus/Anti-Jungkir)</option>
+<option value='250' 
+>250 (Sangat Halus)</option>
+<div class='card'><div class='card-title'>Forward</div>
+<div class='card'><div class='card-title'>Backward</div>
+<div class='card'><div class='card-title'>Curve Movement / Turn</div>
+<div class='card'><div class='card-title'>S_Speed</div>
+<div class='card'>
+<button class='btn' onclick='saveAll()'>Save</button>
+<button class='btn secondary' onclick='resetDefaults()'>Reset Defaults</button>
+<button class='btn secondary' onclick="fetch('/reboot').then(()=>alert('Rebooting...'))">Reboot</button>
+<div class='footer'>Tekan BOOT 3x untuk toggle Web Mode.<br>Web mati otomatis bila PS3 terkoneksi.</div></div>
+<div class='footer'>Go Go Go Jaya Jaya Jaya</div>                          
+<div class='footer'>ID ROBOT <span id='lbl_mac'>
+</span></div>
+<script>function updateFromNumber(id){  let num=document.getElementById(id+'_num');  let range=document.getElementById(id);  let v=parseInt(num.value);  if(isNaN(v))v=0;  if(v<0)v=0;  if(v>255)v=255;  num.value=v;  range.value=v;}function saveAll(){  var p='?';  const keys=["F_FAST_L","F_FAST_R","F_MEDIUM_L","F_MEDIUM_R","F_LOW_L","F_LOW_R","B_FAST_L","B_FAST_R","B_MEDIUM_L","B_MEDIUM_R","B_LOW_L","B_LOW_R","TR_LOW_LR","TR_MEDIUM_LR","TR_FAST_LR","CRV_LOW_L","CRV_LOW_R","CRV_MEDIUM_L","CRV_MEDIUM_R","CRV_FAST_L","CRV_FAST_R","DEFAULT_LR"];  for(let k of keys){p+=k+'='+document.getElementById(k+'_num').value+'&';}  p+='ps3_mac='+encodeURIComponent(document.getElementById('ps3_mac').value)+'&';  p+='pin_mra='+document.getElementById('pin_mra').value+'&';  p+='pin_mrb='+document.getElementById('pin_mrb').value+'&';  p+='pin_mla='+document.getElementById('pin_mla').value+'&';  p+='pin_mlb='+document.getElementById('pin_mlb').value+'&';  p+='ramp_up='+document.getElementById('ramp_up').value+'&';  p+='ramp_down='+document.getElementById('ramp_down').value+'&';  fetch('/save'+p).then(r=>r.text()).then(t=>{alert('Saved successfully!');});}function resetDefaults(){fetch('/reset').then(()=>location.reload());}</script>
+</body></html>
